@@ -119,5 +119,5 @@ Por ejemplo, al enviar varias veces la misma petición POST para crear un nodo, 
 
 ---
 
-## Verifición GET y POST
+## Verificación GET y POST
 ![Verificación](ApiEstructurasDemo/Verificacion.png)
