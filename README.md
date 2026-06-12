@@ -4,8 +4,8 @@
 **Nombre:** Jose Carlos González López  
 **Carnet:** 202505069  
 **Curso:** Laboratorio de Introducción a la Programación y Computación 2
-
 **Fecha:** 11/06/2026
+
 ---
 ## 1. Estructuras de Datos Eficientes
 
