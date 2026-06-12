@@ -120,4 +120,4 @@ Por ejemplo, al enviar varias veces la misma petición POST para crear un nodo, 
 ---
 
 ## Verifición GET y POST
-capturas/post.png
+ApiEstructurasDemo/Verificacion.png
