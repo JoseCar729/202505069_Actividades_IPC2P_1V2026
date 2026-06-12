@@ -1,147 +1,111 @@
-# Actividad2_IPC2P_1V2026
-Parte 1: Investigación Teórica
-1. Estructuras de Datos Eficientes
-Árboles Binarios de Búsqueda (ABB)
+# Parte 1: Investigación Teórica
 
-Un Árbol Binario de Búsqueda (ABB) es una estructura de datos jerárquica donde cada nodo puede tener como máximo dos hijos.
+## 1. Estructuras de Datos Eficientes
 
-Reglas de ordenamiento:
+### Árboles Binarios de Búsqueda (ABB)
 
-Todos los valores del subárbol izquierdo son menores que el valor del nodo padre.
-Todos los valores del subárbol derecho son mayores que el valor del nodo padre.
+Un Árbol Binario de Búsqueda (ABB) es una estructura de datos jerárquica en la que cada nodo puede tener como máximo dos hijos. Su principal característica es que mantiene un orden específico entre los elementos almacenados.
 
-Ejemplo:
+#### Regla de ordenamiento
 
-        10
-       /  \
-      5    15
-Desventaja
+* Todos los valores del subárbol izquierdo de un nodo deben ser menores que el valor del nodo.
+* Todos los valores del subárbol derecho de un nodo deben ser mayores que el valor del nodo.
 
-Si los datos se insertan en orden secuencial (por ejemplo: 1, 2, 3, 4, 5), el árbol se degenera y se comporta como una lista enlazada.
+Gracias a esta propiedad, las operaciones de búsqueda pueden realizarse de manera más eficiente que en una lista lineal.
 
-1
- \
-  2
-   \
-    3
-     \
-      4
-       \
-        5
+#### Desventaja
 
-En este caso las búsquedas dejan de ser eficientes, pasando de O(log n) a O(n).
+La principal desventaja de un ABB ocurre cuando los datos se insertan en un orden secuencial (por ejemplo: 1, 2, 3, 4, 5). En este caso, el árbol se vuelve desbalanceado y adquiere una forma similar a una lista enlazada.
 
-Árboles AVL
+Cuando esto sucede, la complejidad de búsqueda, inserción y eliminación puede degradarse de **O(log n)** a **O(n)**, reduciendo considerablemente la eficiencia de la estructura.
 
-Un árbol AVL es un árbol binario de búsqueda auto-balanceado.
+---
 
-Su objetivo es mantener una altura equilibrada para garantizar operaciones eficientes.
+### Árboles AVL
 
-Factor de Balanceo
+Un árbol AVL es un Árbol Binario de Búsqueda auto-balanceado. Fue diseñado para evitar los problemas de desbalance que pueden presentarse en un ABB tradicional.
 
-Se calcula mediante:
+#### Factor de balanceo
 
-Factor=Altura
-Izquierda
-	​
+El factor de balanceo de un nodo se calcula mediante la siguiente fórmula:
 
-−Altura
-Derecha
-	​
+**Factor = AlturaIzquierda − AlturaDerecha**
 
+Para que el árbol permanezca balanceado, el factor de balanceo de cada nodo debe ser:
 
-Los valores permitidos son:
+* -1
+* 0
+* 1
 
--1
-0
-1
+Cuando el factor de balanceo supera estos límites, el árbol realiza rotaciones automáticamente para recuperar el equilibrio.
 
-Si el factor de balanceo supera estos límites, se realizan rotaciones para reequilibrar el árbol.
+#### Complejidad
 
-Complejidad
+Debido a que el árbol mantiene una altura controlada mediante rotaciones, las operaciones fundamentales conservan una complejidad de:
 
-Gracias al balance automático:
+* Búsqueda: **O(log n)**
+* Inserción: **O(log n)**
+* Eliminación: **O(log n)**
 
-Operación	Complejidad
-Búsqueda	O(log n)
-Inserción	O(log n)
-Eliminación	O(log n)
+Esto garantiza un rendimiento eficiente incluso cuando se manejan grandes cantidades de datos.
 
-Esto se debe a que la altura del árbol siempre permanece cercana a log₂(n).
+---
 
-2. Fundamentos de Web APIs
-¿Qué es una API?
+## 2. Fundamentos de Web APIs
 
-Una API (Application Programming Interface) es un conjunto de reglas que permite que diferentes aplicaciones se comuniquen entre sí.
+### ¿Qué es una API?
 
-En una Web API se utiliza el modelo Cliente-Servidor:
+Una API (Application Programming Interface) es un conjunto de reglas y mecanismos que permite la comunicación entre diferentes aplicaciones o sistemas de software.
 
-El cliente envía una petición (Request).
-El servidor procesa la solicitud.
-El servidor devuelve una respuesta (Response).
+Las Web APIs utilizan generalmente el modelo Cliente-Servidor:
 
-Ejemplo:
+1. El cliente envía una petición (Request) al servidor.
+2. El servidor procesa la solicitud.
+3. El servidor devuelve una respuesta (Response) al cliente.
 
-Cliente (Postman/Navegador)
-          |
-          | HTTP Request
-          v
-       Servidor
-          |
-          | HTTP Response
-          v
-       Cliente
-Funcionamiento mediante HTTP
-Request
+La comunicación se realiza normalmente mediante el protocolo HTTP.
 
-Contiene:
+### Funcionamiento de una petición y respuesta HTTP
 
-URL
-Método HTTP
-Encabezados (Headers)
-Cuerpo (Body) opcional
+Una petición HTTP contiene información como:
 
-Ejemplo:
+* URL del recurso solicitado.
+* Método HTTP utilizado.
+* Encabezados (Headers).
+* Datos enviados en el cuerpo de la petición (Body), cuando corresponda.
 
-POST /api/nodos
-Response
+Después de procesar la solicitud, el servidor devuelve una respuesta HTTP que incluye:
 
-Contiene:
+* Un código de estado.
+* Encabezados.
+* Los datos solicitados o el resultado de la operación.
 
-Código de estado
-Encabezados
-Datos solicitados
+Por ejemplo, una petición para obtener una lista de nodos puede devolver un código **200 OK** junto con un documento JSON que contiene los datos.
 
-Ejemplo:
+---
 
-200 OK
-Verbos HTTP
-GET
+### Verbos HTTP
 
-Se utiliza para recuperar información.
+#### GET
 
-Ejemplo:
-
-GET /api/nodos
+El método **GET** se utiliza para recuperar información existente en el servidor.
 
 Características:
 
-No modifica datos.
-Es idempotente.
+* Obtiene recursos sin modificarlos.
+* No altera el estado de la aplicación.
+* Es un método idempotente.
 
-Una petición GET repetida varias veces produce el mismo resultado.
+Un ejemplo sería solicitar la lista de nodos almacenados en una API.
 
-POST
+#### POST
 
-Se utiliza para crear recursos nuevos.
-
-Ejemplo:
-
-POST /api/nodos
+El método **POST** se utiliza para crear nuevos recursos en el servidor.
 
 Características:
 
-Agrega nuevos datos.
-No es idempotente.
+* Permite enviar datos para su almacenamiento.
+* Modifica el estado de la aplicación.
+* No es idempotente.
 
-Si se ejecuta varias veces, se crean varios recursos.
+Por ejemplo, al enviar varias veces la misma petición POST para crear un nodo, se pueden generar múltiples registros nuevos.
