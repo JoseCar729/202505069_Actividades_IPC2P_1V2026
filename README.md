@@ -116,3 +116,8 @@ Características:
 * No es idempotente.
 
 Por ejemplo, al enviar varias veces la misma petición POST para crear un nodo, se pueden generar múltiples registros nuevos.
+
+---
+
+## Verifición GET y POST
+capturas/post.png
