@@ -144,7 +144,8 @@ Por lo tanto, en la API desarrollada para esta práctica:
 * **GET** se utiliza para recuperar la estructura actual del árbol AVL.
 * **POST** se utiliza para insertar un nodo y simular el proceso de balanceo compuesto.
 
-```
+---
+
 ## Verificaciones
 ![Verificación1](ApiEstructurasDemo/PasoA.png)
 ![Verificación2](ApiEstructurasDemo/PasoB.png)
