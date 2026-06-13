@@ -1,148 +1,123 @@
-# Parte 1: Investigación Teórica y Análisis de Casos
+# Actividad de Investigación y Práctica
+## Estructuras de Datos Avanzadas y APIs con ASP.NET Core
 
-## 1. El Límite de las Rotaciones Simples y Desbalanceo en "Zig-Zag"
+**Nombre:** Jose Carlos González López  
+**Carnet:** 202505069  
+**Curso:** Laboratorio de Introducción a la Programación y Computación 2  
+**Fecha:** 11/06/2026
 
-### El Problema Cruzado
+---
+## 1. Estructuras de Datos Eficientes
 
-Las rotaciones simples en árboles AVL no siempre son suficientes para corregir un desbalance. Esto ocurre cuando la inserción genera una estructura cruzada o tipo **Zig-Zag**, como en la secuencia de inserción **30, 10, 20**.
+### Árboles Binarios de Búsqueda (ABB)
 
-El árbol resultante es:
+Un Árbol Binario de Búsqueda (ABB) es una estructura de datos jerárquica en la que cada nodo puede tener como máximo dos hijos. Su principal característica es que mantiene un orden específico entre los elementos almacenados.
 
-```text
-    30
-   /
- 10
-   \
-    20
-```
+#### Regla de ordenamiento
 
-En este caso, el nodo 30 se encuentra desbalanceado hacia la izquierda, mientras que su hijo izquierdo (10) está inclinado hacia la derecha. Si se aplicara únicamente una rotación simple, el problema no se resolvería correctamente y el árbol continuaría desbalanceado.
+* Todos los valores del subárbol izquierdo de un nodo deben ser menores que el valor del nodo.
+* Todos los valores del subárbol derecho de un nodo deben ser mayores que el valor del nodo.
 
-La **Rotación Doble Izquierda-Derecha (RID)** se ejecuta cuando:
+Gracias a esta propiedad, las operaciones de búsqueda pueden realizarse de manera más eficiente que en una lista lineal.
 
-* El Factor de Equilibrio del nodo padre es **-2**.
-* El Factor de Equilibrio de su hijo izquierdo es **+1**.
+#### Desventaja
 
-Matemáticamente:
+La principal desventaja de un ABB ocurre cuando los datos se insertan en un orden secuencial (por ejemplo: 1, 2, 3, 4, 5). En este caso, el árbol se vuelve desbalanceado y adquiere una forma similar a una lista enlazada.
 
-```text
-FE(Padre) = -2
-FE(Hijo Izquierdo) = +1
-```
-
-La corrección se realiza en dos pasos:
-
-1. Rotación simple a la izquierda sobre el hijo izquierdo.
-2. Rotación simple a la derecha sobre el nodo desbalanceado.
-
-El resultado final es:
-
-```text
-    20
-   /  \
- 10   30
-```
-
-De esta manera, el árbol recupera su equilibrio.
-
-### Principio DRY (Don't Repeat Yourself)
-
-El principio DRY establece que no debe duplicarse código que realiza la misma tarea. En el caso de los árboles AVL, las rotaciones dobles (RID y RDI) pueden implementarse reutilizando las rotaciones simples ya existentes.
-
-Las ventajas de esta estrategia son:
-
-* Menor cantidad de código.
-* Mayor facilidad de mantenimiento.
-* Menor probabilidad de errores al manipular referencias o punteros.
-* Mejor reutilización de componentes ya probados.
-* Mayor claridad en la implementación.
-
-Por esta razón, una rotación doble suele construirse combinando dos rotaciones simples en lugar de reescribir toda la lógica desde cero.
+Cuando esto sucede, la complejidad de búsqueda, inserción y eliminación puede degradarse de **O(log n)** a **O(n)**, reduciendo considerablemente la eficiencia de la estructura.
 
 ---
 
-## 2. Fundamentos de Arquitectura Web y Protocolo HTTP
+### Árboles AVL
 
-### El Modelo Cliente-Servidor
+Un árbol AVL es un Árbol Binario de Búsqueda auto-balanceado. Fue diseñado para evitar los problemas de desbalance que pueden presentarse en un ABB tradicional.
 
-El modelo cliente-servidor es una arquitectura donde un cliente solicita servicios o recursos a un servidor.
+#### Factor de balanceo
 
-Los componentes principales son:
+El factor de balanceo de un nodo se calcula mediante la siguiente fórmula:
 
-* **Cliente:** navegador web, aplicación móvil o cualquier software consumidor.
-* **Servidor:** aplicación que procesa las solicitudes y genera respuestas.
+**Factor = AlturaIzquierda − AlturaDerecha**
 
-El flujo de comunicación es:
+Para que el árbol permanezca balanceado, el factor de balanceo de cada nodo debe ser:
 
-```text
-Cliente --> HTTP Request --> Servidor
-Cliente <-- HTTP Response -- Servidor
-```
+* -1
+* 0
+* 1
 
-La petición (**Request**) normalmente contiene:
+Cuando el factor de balanceo supera estos límites, el árbol realiza rotaciones automáticamente para recuperar el equilibrio.
 
-* Método HTTP.
+#### Complejidad
+
+Debido a que el árbol mantiene una altura controlada mediante rotaciones, las operaciones fundamentales conservan una complejidad de:
+
+* Búsqueda: **O(log n)**
+* Inserción: **O(log n)**
+* Eliminación: **O(log n)**
+
+Esto garantiza un rendimiento eficiente incluso cuando se manejan grandes cantidades de datos.
+
+---
+
+## 2. Fundamentos de Web APIs
+
+### ¿Qué es una API?
+
+Una API (Application Programming Interface) es un conjunto de reglas y mecanismos que permite la comunicación entre diferentes aplicaciones o sistemas de software.
+
+Las Web APIs utilizan generalmente el modelo Cliente-Servidor:
+
+1. El cliente envía una petición (Request) al servidor.
+2. El servidor procesa la solicitud.
+3. El servidor devuelve una respuesta (Response) al cliente.
+
+La comunicación se realiza normalmente mediante el protocolo HTTP.
+
+### Funcionamiento de una petición y respuesta HTTP
+
+Una petición HTTP contiene información como:
+
 * URL del recurso solicitado.
+* Método HTTP utilizado.
 * Encabezados (Headers).
-* Datos opcionales (Body).
+* Datos enviados en el cuerpo de la petición (Body), cuando corresponda.
 
-La respuesta (**Response**) contiene:
+Después de procesar la solicitud, el servidor devuelve una respuesta HTTP que incluye:
 
-* Código de estado HTTP.
+* Un código de estado.
 * Encabezados.
-* Datos solicitados o resultado de la operación.
+* Los datos solicitados o el resultado de la operación.
 
-Los datos viajan a través de la red utilizando el protocolo HTTP.
+Por ejemplo, una petición para obtener una lista de nodos puede devolver un código **200 OK** junto con un documento JSON que contiene los datos.
 
-### Semántica de Operaciones
+---
 
-#### Método GET
+### Verbos HTTP
+
+#### GET
 
 El método **GET** se utiliza para recuperar información existente en el servidor.
 
 Características:
 
-* No modifica datos.
-* Es seguro para consultas.
-* Puede ejecutarse varias veces sin alterar el estado del sistema.
+* Obtiene recursos sin modificarlos.
+* No altera el estado de la aplicación.
+* Es un método idempotente.
 
-Ejemplo:
+Un ejemplo sería solicitar la lista de nodos almacenados en una API.
 
-```http
-GET /api/arbol
-```
+#### POST
 
-Este método se utiliza para obtener la estructura actual del árbol.
-
-#### Método POST
-
-El método **POST** se utiliza para enviar información al servidor con el objetivo de crear o modificar recursos.
+El método **POST** se utiliza para crear nuevos recursos en el servidor.
 
 Características:
 
-* Modifica el estado del sistema.
-* Puede crear nuevos recursos.
-* Generalmente responde con el código HTTP **201 Created** cuando la operación es exitosa.
+* Permite enviar datos para su almacenamiento.
+* Modifica el estado de la aplicación.
+* No es idempotente.
 
-Ejemplo:
+Por ejemplo, al enviar varias veces la misma petición POST para crear un nodo, se pueden generar múltiples registros nuevos.
 
-```http
-POST /api/arbol/insertar
-```
+---
 
-Este método se utiliza para insertar nuevos nodos o realizar cambios en la estructura de datos.
-
-### Diferencia entre GET y POST
-
-| Método | Propósito                                          |
-| ------ | -------------------------------------------------- |
-| GET    | Recuperar información o consultar datos existentes |
-| POST   | Insertar, crear o modificar información            |
-
-Por lo tanto, en la API desarrollada para esta práctica:
-
-* **GET** se utiliza para recuperar la estructura actual del árbol AVL.
-* **POST** se utiliza para insertar un nodo y simular el proceso de balanceo compuesto.
-
-```
-```
+## Verificación GET y POST
+![Verificación](ApiEstructurasDemo/Verificacion.png)
