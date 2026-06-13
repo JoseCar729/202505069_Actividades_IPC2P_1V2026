@@ -145,4 +145,7 @@ Por lo tanto, en la API desarrollada para esta práctica:
 * **POST** se utiliza para insertar un nodo y simular el proceso de balanceo compuesto.
 
 ```
-```
+## Verificaciones
+![Verificación1](ApiEstructurasDemo/PasoA.png)
+![Verificación2](ApiEstructurasDemo/PasoB.png)
+![Verificación3](ApiEstructurasDemo/PasoC.png)
