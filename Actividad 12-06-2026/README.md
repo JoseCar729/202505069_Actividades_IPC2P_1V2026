@@ -147,6 +147,6 @@ Por lo tanto, en la API desarrollada para esta práctica:
 ---
 
 ## Verificaciones
-![Verificación1](ApiEstructurasDemo/PasoA.png)
-![Verificación2](ApiEstructurasDemo/PasoB.png)
-![Verificación3](ApiEstructurasDemo/PasoC.png)
+![Verificación1](ApiAvlSimulacion/PasoA.png)
+![Verificación2](ApiAvlSimulacion/PasoB.png)
+![Verificación3](ApiAvlSimulacion/PasoC.png)
