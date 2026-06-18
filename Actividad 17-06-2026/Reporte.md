@@ -109,11 +109,11 @@ El controlador envía los datos a la vista. La vista genera el código HTML din�
 
 ## Prueba de Cohesión (GET)
 
-La acción `Listar()` devuelve directamente la colección de estudiantes hacia la vista correspondiente. El controlador únicamente despacha información y no contiene consultas SQL ni lógica de negocio compleja, cumpliendo con los principios de alta cohesión.
+![GET](ControlAcademicoMvc/Prueba de cohesion (GET).png)
 
 ## Evaluación de Antipatrones
 
-Se verificó que ninguno de los métodos del controlador supera las veinte líneas de código. Esto evita la aparición del antipatrón conocido como **Fat Controller**, manteniendo una correcta separación de responsabilidades y facilitando el mantenimiento del sistema.
+![Antipatron](ControlAcademicoMvc/Evaluacion de Antipatrones.png)
 
 ---
 
