@@ -109,11 +109,11 @@ El controlador envía los datos a la vista. La vista genera el código HTML din�
 
 ## Prueba de Cohesión (GET)
 
-![GET](ControlAcademicoMvc/Prueba de cohesion (GET).png)
+![PRUEBA1](ControlAcademicoMvc/P1.png)
 
 ## Evaluación de Antipatrones
 
-![Antipatron](ControlAcademicoMvc/Evaluacion de Antipatrones.png)
+![PRUEBA2](ControlAcademicoMvc/P2.png)
 
 ---
 
