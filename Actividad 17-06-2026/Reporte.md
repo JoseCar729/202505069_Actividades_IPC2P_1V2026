@@ -74,15 +74,7 @@ El patrón MVC favorece una alta cohesión porque cada componente posee una resp
 
 ## 1. Mapeo Analítico de URLs
 
-Tomando como base la plantilla:
-
-```text
-{controller=Home}/{action=Index}/{id?}
-```
-
-se obtiene el siguiente mapeo:
-
-| URL Entrante                                                 | Controlador                | Acción    | id       |
+| URL Entrante | Clase Controladora Buscada por el Framework | Método (Acción) Ejecutado | Parámetro id inyectado       |
 | ------------------------------------------------------------ | -------------------------- | --------- | -------- |
 | https://ingenieria.usac.edu.gt/ControlAcademico/Login        | ControlAcademicoController | Login     | Ninguno  |
 | https://ingenieria.usac.edu.gt/Estudiante/Historial/20260123 | EstudianteController       | Historial | 20260123 |
