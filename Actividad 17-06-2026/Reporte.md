@@ -117,17 +117,7 @@ El controlador envía los datos a la vista. La vista genera el código HTML din�
 
 ---
 
-# Conclusiones
-
-1. La arquitectura Multi-Nivel permite distribuir responsabilidades entre diferentes componentes físicos, mejorando la escalabilidad, seguridad y mantenibilidad de los sistemas modernos.
-
-2. El patrón MVC facilita la separación de responsabilidades dentro del software, promoviendo un diseño organizado y reduciendo el acoplamiento entre componentes.
-
-3. La implementación práctica demostró cómo ASP.NET Core MVC integra modelos, vistas y controladores para construir aplicaciones web estructuradas, mantenibles y alineadas con las buenas prácticas de la ingeniería de software.
-
----
-
-# Referencias Bibliográficas
+# Parte 5: Referencias Bibliográficas
 
 Facultad de Ingeniería, USAC. (2026). *Sesión 11: Modelado Base y Arquitecturas de Despliegue. Evolución de Sistemas Distribuidos, Fundamentos del Modelo Cliente-Servidor y Diseño Físico Multi-Capas (N-Tier).* Laboratorio del curso Introducción a la Programación y Computación 2. Guatemala.
 
