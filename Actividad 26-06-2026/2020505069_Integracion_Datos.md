@@ -2,9 +2,11 @@
 
 **Nombre:** Jose Carlos González López
 
+**Carnet:** 202505069
+
 **Curso:** Laboratorio de Introducción a la Programación y Computación 2
 
-**Fecha:** 17 de junio de 2026
+**Fecha:** 26/06/2026
 
 ## Parte 1: Evaluación Conceptual y Buenas Prácticas
 
