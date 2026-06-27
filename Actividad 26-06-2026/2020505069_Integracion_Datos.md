@@ -27,7 +27,7 @@
 
 El problema **N+1** ocurre cuando por cada registro leído de un archivo se realiza una operación individual hacia la base de datos, provocando un gran número de consultas o inserciones y reduciendo considerablemente el rendimiento.
 
-La estrategia recomendada es el Batching, que consiste en almacenar temporalmente los registros en una colección y realizar una única inserción masiva mediante AddRange() seguida de una sola llamada a `aveChangesAsync().
+La estrategia recomendada es el Batching, que consiste en almacenar temporalmente los registros en una colección y realizar una única inserción masiva mediante AddRange() seguida de una sola llamada a SaveChangesAsync().
 
 ---
 
