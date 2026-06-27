@@ -1,7 +1,9 @@
 # Actividad de Laboratorio: Interoperabilidad y Carga Masiva de Datos
 
 **Nombre:** Jose Carlos González López
+
 **Curso:** Laboratorio de Introducción a la Programación y Computación 2
+
 **Fecha:** 17 de junio de 2026
 
 ## Parte 1: Evaluación Conceptual y Buenas Prácticas
