@@ -14,14 +14,14 @@
 
 | Formato | Ventajas | Desventajas |
 |---------|----------|-------------|
-| **CSV** | Formato simple, ligero, fácil de generar y procesar. Ocupa poco espacio y es ideal para grandes volúmenes de datos tabulares. | No soporta estructuras jerárquicas, tipos de datos ni metadatos. Es propenso a errores de formato. |
-| **XML** | Permite representar datos complejos y jerárquicos. Es extensible y autodescriptivo. | Es más pesado, ocupa más espacio y su procesamiento es más lento que CSV. |
+| **CSV** | Extremadamente ligero, fácil de generar desde Excel. | No soporta jerarquías complejas, solo datos planos. |
+| **XML** | Estructurado, soporta tipos de datos y jerarquías. | Verboso, archivos más pesados que JSON o CSV. |
 
 ### 2. Diferenciación de Procesos
 
-**Serialización** es el proceso de convertir un objeto de C# en un formato de intercambio de datos, como JSON, utilizando `System.Text.Json`.
+**Serialización** es el proceso de convertir un objeto de C# en un formato de intercambio de datos, como JSON, utilizando System.Text.Json.
 
-**Deserialización** es el proceso inverso: consiste en convertir un documento JSON nuevamente en un objeto de C#, utilizando métodos como `JsonSerializer.Deserialize<T>()`.
+**Deserialización** es el proceso inverso: consiste en convertir un documento JSON nuevamente en un objeto de C#, utilizando métodos como JsonSerializer.Deserialize<T>().
 
 ### 3. El Antipatrón del Rendimiento (N+1)
 
